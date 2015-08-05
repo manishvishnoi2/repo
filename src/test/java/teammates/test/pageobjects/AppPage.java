@@ -761,6 +761,7 @@ public abstract class AppPage {
                 }
             }
             HtmlHelper.assertSameHtml(expected, actual, isPart);
+            regenerateHtmlFile(filePath, actual, isPart);
             
         } catch (IOException|AssertionError e) {
             if (!testAndRunGodMode(filePath, actual, isPart)) {
