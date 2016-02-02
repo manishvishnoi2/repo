@@ -11,11 +11,11 @@
     <thead>
         <tr class="fill-primary">
             <th id="button_sortid" onclick="toggleSort(this,1);"
-                class="button-sort-ascending">Course ID <span
+                class="button-sort-ascending" style="min-width: 100px;">Course ID <span
                 class="icon-sort unsorted"></span>
             </th>
             <th id="button_sortname" onclick="toggleSort(this,2)"
-                class="button-sort-none">
+                class="button-sort-none" style="min-width: 130px;">
                     Session Name <span class="icon-sort unsorted"></span>
             </th>
             <th>Status</th>
