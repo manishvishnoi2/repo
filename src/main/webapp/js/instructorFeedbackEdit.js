@@ -379,7 +379,7 @@ function formatNumberBoxes() {
         var value = $(this).val();
         
         formatNumberBox(value, qnNumber);
-    }
+    };
     $('select[name=' + FEEDBACK_QUESTION_RECIPIENTTYPE + ']').each(modifyVisibility)
                                                              .change(modifyVisibility);
     
@@ -827,7 +827,7 @@ function getVisibilityMessage(buttonElem) {
     var formData = $form.serialize();
     
     var $formOptions = $form.find('.visibilityOptions');
-    var $formVisibility = $form.find('.visibilityMessage') 
+    var $formVisibility = $form.find('.visibilityMessage');
     
     if (previousFormDataMap[qnNumber] === formData) {
         $formOptions.hide();
@@ -864,9 +864,9 @@ function updateVisibilityMessageButton($form, isLoadSuccessful) {
     var visibilityButton = $form.find('.visibilityMessageButton');
     
     var radioInput = visibilityButton.find('input[type="radio"]');
-    var icon = '<span class="glyphicon glyphicon-'
-               + (isLoadSuccessful ? 'eye-open' : 'warning-sign')
-               + '"></span>';
+    var icon = '<span class="glyphicon glyphicon-' +
+               (isLoadSuccessful ? 'eye-open' : 'warning-sign') +
+               '"></span>';
     var message = isLoadSuccessful ? 'Preview Visibility'
                                    : 'Visibility preview failed to load. Click here to retry.';
     
@@ -921,21 +921,21 @@ function addMcqOption(questionNumber) {
     var curNumberOfChoiceCreated =
             parseInt($('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val());
     
-    $(    "<div id=\"mcqOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">"
-        +   "<div class=\"input-group\">"
-        +       "<span class=\"input-group-addon\">"
-        +          "<input type=\"radio\" disabled=\"disabled\">"
-        +       "</span>"
-        +       "<input type=\"text\" name=\""+FEEDBACK_QUESTION_MCQCHOICE+"-"+curNumberOfChoiceCreated+"\" "
-        +               "id=\""+FEEDBACK_QUESTION_MCQCHOICE+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control mcqOptionTextBox\">"
-        +       "<span class=\"input-group-btn\">"
-        +           "<button type=\"button\" class=\"btn btn-default removeOptionLink\" id=\"mcqRemoveOptionLink\" "
-        +                   "onclick=\"removeMcqOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">"
-        +               "<span class=\"glyphicon glyphicon-remove\"></span>"
-        +           "</button>"
-        +       "</span>"
-        +   "</div>"
-        + "</div>"
+    $(    "<div id=\"mcqOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">" +
+            "<div class=\"input-group\">" +
+                "<span class=\"input-group-addon\">" +
+                  "<input type=\"radio\" disabled=\"disabled\">" +
+                "</span>" +
+                "<input type=\"text\" name=\""+FEEDBACK_QUESTION_MCQCHOICE+"-"+curNumberOfChoiceCreated+"\" " +
+                        "id=\""+FEEDBACK_QUESTION_MCQCHOICE+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control mcqOptionTextBox\">" +
+                "<span class=\"input-group-btn\">" +
+                    "<button type=\"button\" class=\"btn btn-default removeOptionLink\" id=\"mcqRemoveOptionLink\" " +
+                        "onclick=\"removeMcqOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">" +
+                        "<span class=\"glyphicon glyphicon-remove\"></span>" +
+                    "</button>" +
+                "</span>" +
+            "</div>" +
+        "</div>"
     ).insertBefore($('#mcqAddOptionRow' + idSuffix));
 
     $('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val(curNumberOfChoiceCreated + 1);
@@ -969,7 +969,7 @@ function toggleMcqGeneratedOptions(checkbox, questionNumber) {
     var idSuffix = getQuestionIdSuffix(questionNumber);
 
     if (checkbox.checked) {
-        $('#mcqChoiceTable' + idSuffix).find('input[type=text]').prop('disabled', true)
+        $('#mcqChoiceTable' + idSuffix).find('input[type=text]').prop('disabled', true);
         $('#mcqChoiceTable' + idSuffix).hide();
         $('#mcqGenerateForSelect' + idSuffix).prop('disabled', false);
         $("#mcqOtherOptionFlag" + idSuffix).parent().hide();
@@ -1013,21 +1013,21 @@ function addMsqOption(questionNumber) {
     var curNumberOfChoiceCreated =
             parseInt($('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val());
         
-    $(   "<div id=\"msqOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">"
-        +   "<div class=\"input-group\">"
-        +       "<span class=\"input-group-addon\">"
-        +          "<input type=\"checkbox\" disabled=\"disabled\">"
-        +       "</span>"
-        +       "<input type=\"text\" name=\""+FEEDBACK_QUESTION_MSQCHOICE+"-"+curNumberOfChoiceCreated+"\" "
-        +               "id=\""+FEEDBACK_QUESTION_MSQCHOICE+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control msqOptionTextBox\">"
-        +       "<span class=\"input-group-btn\">"
-        +           "<button type=\"button\" class=\"btn btn-default removeOptionLink\" id=\"msqRemoveOptionLink\" "
-        +                   "onclick=\"removeMsqOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">"
-        +               "<span class=\"glyphicon glyphicon-remove\"></span>"
-        +           "</button>"
-        +       "</span>"
-        +   "</div>"
-        + '</div>'
+    $(  "<div id=\"msqOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">" +
+            "<div class=\"input-group\">" +
+                "<span class=\"input-group-addon\">" +
+                   "<input type=\"checkbox\" disabled=\"disabled\">" +
+                "</span>" +
+                "<input type=\"text\" name=\""+FEEDBACK_QUESTION_MSQCHOICE+"-"+curNumberOfChoiceCreated+"\" " +
+                        "id=\""+FEEDBACK_QUESTION_MSQCHOICE+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control msqOptionTextBox\">" +
+                "<span class=\"input-group-btn\">" +
+                    "<button type=\"button\" class=\"btn btn-default removeOptionLink\" id=\"msqRemoveOptionLink\" " +
+                            "onclick=\"removeMsqOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">" +
+                        "<span class=\"glyphicon glyphicon-remove\"></span>" +
+                    "</button>" +
+                "</span>" +
+            "</div>" +
+        '</div>'
     ).insertBefore($('#msqAddOptionRow' + idSuffix));
 
     $('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val(curNumberOfChoiceCreated + 1);
@@ -1062,7 +1062,7 @@ function toggleMsqGeneratedOptions(checkbox, questionNumber) {
     var idSuffix = getQuestionIdSuffix(questionNumber);
 
     if (checkbox.checked) {
-        $('#msqChoiceTable' + idSuffix).find('input[type=text]').prop('disabled', true)
+        $('#msqChoiceTable' + idSuffix).find('input[type=text]').prop('disabled', true);
         $('#msqChoiceTable' + idSuffix).hide();
         $('#msqGenerateForSelect' + idSuffix).prop('disabled', false);
         $("#msqOtherOptionFlag" + idSuffix).parent().hide();
@@ -1123,7 +1123,7 @@ function updateNumScalePossibleValues(questionNumber) {
                                    ' is not divisible by the specified increment.]';
 
         if (isNaN(min) || isNaN(max) || isNaN(step)) {
-            possibleValuesString = '[Please enter valid numbers for all the options.]'
+            possibleValuesString = '[Please enter valid numbers for all the options.]';
         }
 
         $numScalePossibleValues.text(possibleValuesString);
@@ -1175,18 +1175,18 @@ function addConstSumOption(questionNumber) {
     
     var curNumberOfChoiceCreated = parseInt($('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val());
         
-    $(    "<div class=\"margin-bottom-7px\" id=\"constSumOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">"
-        +   "<div class=\"input-group width-100-pc\">"
-        +       "<input type=\"text\" name=\""+FEEDBACK_QUESTION_CONSTSUMOPTION+"-"+curNumberOfChoiceCreated+"\" "
-        +               "id=\""+FEEDBACK_QUESTION_CONSTSUMOPTION+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control constSumOptionTextBox\">"
-        +       "<span class=\"input-group-btn\">"
-        +           "<button class=\"btn btn-default removeOptionLink\" id=\"constSumRemoveOptionLink\" "
-        +                   "onclick=\"removeConstSumOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">"
-        +               "<span class=\"glyphicon glyphicon-remove\"></span>"
-        +           "</button>"
-        +       "</span>"
-        +   "</div>"
-        + '</div>'
+    $(  "<div class=\"margin-bottom-7px\" id=\"constSumOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">" +
+           "<div class=\"input-group width-100-pc\">" +
+               "<input type=\"text\" name=\""+FEEDBACK_QUESTION_CONSTSUMOPTION+"-"+curNumberOfChoiceCreated+"\" " +
+                       "id=\""+FEEDBACK_QUESTION_CONSTSUMOPTION+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control constSumOptionTextBox\">" +
+               "<span class=\"input-group-btn\">" +
+                   "<button class=\"btn btn-default removeOptionLink\" id=\"constSumRemoveOptionLink\" " +
+                           "onclick=\"removeConstSumOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">" +
+                       "<span class=\"glyphicon glyphicon-remove\"></span>" +
+                   "</button>" +
+               "</span>" +
+           "</div>" +
+        '</div>'
     ).insertBefore($('#constSumAddOptionRow' + idSuffix));
 
     $('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val(curNumberOfChoiceCreated + 1);
@@ -1356,23 +1356,24 @@ function addRubricRow(questionNumber) {
     var newRowNumber = numberOfRows + 1;
 
     var rubricRowTemplate =
-        "<tr id=\"rubricRow-${qnIndex}-${row}\">"
-      +     "<td>"
-      +         "<div class=\"col-sm-12 input-group\">"
-      +             "<span class=\"input-group-addon btn btn-default rubricRemoveSubQuestionLink-${qnIndex}\" id=\"rubricRemoveSubQuestionLink-${qnIndex}-${row}\" onclick=\"removeRubricRow(${row},${qnIndex})\""
-      +                     "onmouseover=\"highlightRubricRow(${row}, ${qnIndex}, true)\" onmouseout=\"highlightRubricRow(${row}, ${qnIndex}, false)\">"
-      +                 "<span class=\"glyphicon glyphicon-remove\"></span>"
-      +             "</span>"
-      +             "<textarea class=\"form-control\" rows=\"3\" id=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICSUBQUESTION}-${qnIndex}-${row}\" name=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICSUBQUESTION}-${row}\">${subQuestion}</textarea>"
-      +         "</div>"
-      +     "</td>"
-      +     "${rubricRowBodyFragments}"
-      + "</tr>";
+        "<tr id=\"rubricRow-${qnIndex}-${row}\">" +
+            "<td>" +
+                "<div class=\"col-sm-12 input-group\">" +
+                    "<span class=\"input-group-addon btn btn-default rubricRemoveSubQuestionLink-${qnIndex}\" id=\"rubricRemoveSubQuestionLink-${qnIndex}-${row}\" onclick=\"removeRubricRow(${row},${qnIndex})\"" +
+                            "onmouseover=\"highlightRubricRow(${row}, ${qnIndex}, true)\" onmouseout=\"highlightRubricRow(${row}, ${qnIndex}, false)\">" +
+                        "<span class=\"glyphicon glyphicon-remove\"></span>" +
+                    "</span>" +
+                    "<textarea class=\"form-control\" rows=\"3\" id=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICSUBQUESTION}-${qnIndex}-${row}\" name=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICSUBQUESTION}-${row}\">${subQuestion}</textarea>" +
+                "</div>" +
+            "</td>" +
+            "${rubricRowBodyFragments}" +
+        "</tr>";
 
     var rubricRowFragmentTemplate =
-        "<td class=\"align-center rubricCol-${qnIndex}-${col}\">"
-      +   "<textarea class=\"form-control\" rows=\"3\" id=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${qnIndex}-${row}-${col}\" name=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${row}-${col}\">${description}</textarea>"
-      + "</td>";
+        "<td class=\"align-center rubricCol-${qnIndex}-${col}\">" +
+            "<textarea class=\"form-control\" rows=\"3\" " +
+                "id=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${qnIndex}-${row}-${col}\" " + "name=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${row}-${col}\">${description}</textarea>" +
+        "</td>";
 
     var rubricRowBodyFragments = '';
     // Create numberOfCols of <td>'s 
@@ -1421,15 +1422,15 @@ function addRubricCol(questionNumber) {
 
     //Insert header <th>
     var rubricHeaderFragmentTemplate = 
-       "<th class=\"rubricCol-${qnIndex}-${col}\">"
-      +     "<div class=\"input-group\">"
-      +         "<input type=\"text\" class=\"col-sm-12 form-control\" value=\"${rubricChoiceValue}\" id=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICCHOICE}-${qnIndex}-${col}\" name=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICCHOICE}-${col}\">"
-      +         "<span class=\"input-group-addon btn btn-default rubricRemoveChoiceLink-${qnIndex}\" id=\"rubricRemoveChoiceLink-${qnIndex}-${col}\" onclick=\"removeRubricCol(${col}, ${qnIndex})\" "
-      +                 "onmouseover=\"highlightRubricCol(${col}, ${qnIndex}, true)\" onmouseout=\"highlightRubricCol(${col}, ${qnIndex}, false)\">"
-      +             "<span class=\"glyphicon glyphicon-remove\"></span>"
-      +         "</span>"
-      +     "</div>"
-      + "</th>";
+        "<th class=\"rubricCol-${qnIndex}-${col}\">" +
+            "<div class=\"input-group\">" +
+                "<input type=\"text\" class=\"col-sm-12 form-control\" value=\"${rubricChoiceValue}\" id=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICCHOICE}-${qnIndex}-${col}\" name=\"${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICCHOICE}-${col}\">" +
+                "<span class=\"input-group-addon btn btn-default rubricRemoveChoiceLink-${qnIndex}\" id=\"rubricRemoveChoiceLink-${qnIndex}-${col}\" onclick=\"removeRubricCol(${col}, ${qnIndex})\" " +
+                        "onmouseover=\"highlightRubricCol(${col}, ${qnIndex}, true)\" onmouseout=\"highlightRubricCol(${col}, ${qnIndex}, false)\">" +
+                    "<span class=\"glyphicon glyphicon-remove\"></span>" +
+                "</span>" +
+            "</div>" +
+        "</th>";
 
     var rubricHeaderFragment = rubricHeaderFragmentTemplate;
     rubricHeaderFragment = replaceAll(rubricHeaderFragment, '${qnIndex}', questionNumber);
@@ -1445,9 +1446,9 @@ function addRubricCol(questionNumber) {
 
     // Insert body <td>'s
     var rubricRowFragmentTemplate =
-        '<td class=\'align-center rubricCol-${qnIndex}-${col}\'>'
-      +   '<textarea class=\'form-control\' rows=\'3\' id=\'${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${qnIndex}-${row}-${col}\' name=\'${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${row}-${col}\'>${description}</textarea>'
-      + '</td>';
+        '<td class=\'align-center rubricCol-${qnIndex}-${col}\'>' +
+            '<textarea class=\'form-control\' rows=\'3\' id=\'${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${qnIndex}-${row}-${col}\' name=\'${Const.ParamsNames.FEEDBACK_QUESTION_RUBRICDESCRIPTION}-${row}-${col}\'>${description}</textarea>' +
+        '</td>';
 
     var rubricRowBodyFragments = '';
     // Create numberOfRows of <td>'s
@@ -1488,7 +1489,7 @@ function removeRubricRow(index, questionNumber) {
     
     var delStr = numberOfRows <= 1 ? 'clear' : 'delete';
     if (!confirm('Are you sure you want to ' + delStr + ' the row?')) {
-        return
+        return;
     }
     
     if (numberOfRows <= 1) {
@@ -1513,7 +1514,7 @@ function removeRubricCol(index, questionNumber) {
     
     var delStr = numberOfCols <= 1 ? 'clear' : 'delete';
     if (!confirm('Are you sure you want to ' + delStr + ' the column?')) {
-        return
+        return;
     }
     
     if (numberOfCols <= 1) {
@@ -1574,18 +1575,18 @@ function addRankOption(questionNumber) {
     
     var curNumberOfChoiceCreated = parseInt($('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val());
         
-    $(    "<div id=\"rankOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">"
-        +   "<div class=\"input-group\">"
-        +       "<input type=\"text\" name=\""+FEEDBACK_QUESTION_RANKOPTION+"-"+curNumberOfChoiceCreated+"\" "
-        +               "id=\""+FEEDBACK_QUESTION_RANKOPTION+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control rankOptionTextBox\">"
-        +       "<span class=\"input-group-btn\">"
-        +           "<button class=\"btn btn-default removeOptionLink\" id=\"rankRemoveOptionLink\" "
-        +                   "onclick=\"removeRankOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">"
-        +               "<span class=\"glyphicon glyphicon-remove\"></span>"
-        +           "</button>"
-        +       "</span>"
-        +   "</div>"
-        + '</div>'
+    $(  "<div id=\"rankOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">" +
+            "<div class=\"input-group\">" +
+                "<input type=\"text\" name=\""+FEEDBACK_QUESTION_RANKOPTION+"-"+curNumberOfChoiceCreated+"\" " +
+                        "id=\""+FEEDBACK_QUESTION_RANKOPTION+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control rankOptionTextBox\">" +
+                "<span class=\"input-group-btn\">" +
+                    "<button class=\"btn btn-default removeOptionLink\" id=\"rankRemoveOptionLink\" " +
+                            "onclick=\"removeRankOption("+curNumberOfChoiceCreated+","+questionNumber+")\" tabindex=\"-1\">" +
+                        "<span class=\"glyphicon glyphicon-remove\"></span>" +
+                    "</button>" +
+                "</span>" +
+            "</div>" +
+        '</div>'
     ).insertBefore($('#rankAddOptionRow' + idSuffix));
 
     $('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val(curNumberOfChoiceCreated + 1);
