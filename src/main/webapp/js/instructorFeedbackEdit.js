@@ -1573,8 +1573,8 @@ function addRankOption(questionNumber) {
     
     var curNumberOfChoiceCreated = parseInt($('#' + FEEDBACK_QUESTION_NUMBEROFCHOICECREATED + idSuffix).val());
         
-    $(  "<div id=\"rankOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">" +
-            "<div class=\"input-group\">" +
+    $(  "<div class=\"margin-bottom-7px\" id=\"rankOptionRow-"+curNumberOfChoiceCreated+idSuffix+"\">" +
+            "<div class=\"input-group width-100-pc\">" +
                 "<input type=\"text\" name=\""+FEEDBACK_QUESTION_RANKOPTION+"-"+curNumberOfChoiceCreated+"\" " +
                         "id=\""+FEEDBACK_QUESTION_RANKOPTION+"-"+curNumberOfChoiceCreated+idSuffix+"\" class=\"form-control rankOptionTextBox\">" +
                 "<span class=\"input-group-btn\">" +
