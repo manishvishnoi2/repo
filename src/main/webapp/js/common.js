@@ -145,7 +145,7 @@ $(document).on('ajaxComplete ready', function() {
     */
     var $tooltips = $('[data-toggle="tooltip"]');
     $tooltips.tooltip({html: true, container: 'body'});
-    if (isTouchDevice() === true) {
+    if (isTouchDevice()) {
         $tooltips.tooltip('disable');
     }
 });
@@ -153,9 +153,8 @@ $(document).on('ajaxComplete ready', function() {
 /**
  * Checks if the current device is touch based device
  * Reference: https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
- * @returns true if touch based device, false otherwise
  */
-function isTouchDevice(){
+function isTouchDevice() {
     return true === (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
 }
 
