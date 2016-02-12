@@ -20,7 +20,7 @@ Important: When a version is specified, please install that version instead of t
    Go to `Window → Preferences → Google → App Engine`, click the `Add` button,
    and point it to where you extracted the SDK zip file. <br>
    Further instructions for installing can be found at https://developers.google.com/eclipse/docs/using_sdks.
-8. Install the latest [TestNG Eclipse plugin](http://testng.org/doc/eclipse.html).
+8. Install the latest [TestNG Eclipse plugin](http://testng.org/doc/download.html).
 
 ##Setting up the dev server
 `Dev server` means running the server in your own computer.
@@ -51,7 +51,8 @@ Important: When a version is specified, please install that version instead of t
    If you want to use Sendgrid for developing and testing email features, create a free SendGrid account and update your username and password in `build.properties`
    * `src/test/resources/test.properties`<br>
    Create it using `test.template.properties`. 
-   For now, property values can remain as they are.<br>
+   Append a unique id (e.g. your name) to **each** of the default accounts found at the bottom of this file. 
+   e.g. change `test.student1.account=alice.tmms` to `test.student1.account=alice.tmms.KevinChan`<br>
    * `src/main/webapp/WEB-INF/appengine-web.xml`<br>
    Create it using `appengine-web.template.xml`. 
    For now, property values can remain as they are.
