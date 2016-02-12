@@ -10,7 +10,7 @@ import teammates.test.driver.TestProperties;
 public abstract class RemoteApiClient {
 
     protected void doOperationRemotely() throws IOException {
-        TestProperties testProperties = TestProperties.inst();
+        //TestProperties testProperties = TestProperties.inst();
 
         System.out.println("--- Starting remote operation ---");
         System.out.println("Going to connect to:"
